@@ -11,6 +11,13 @@ package logica;
  */
 public class MetodoDeGaussJordan {
 
+    /**
+     * Función que carga la metriz aumentada y retorna el resultado de cada variable
+     * @fuente http://ingeuce.wixsite.com/ingeuce2/productos/ProductListItem1_hplorucy4_1/M%C3%A9todo-de-Gauss-Jordan-en-javaNetbeans
+     * @param m matriz double
+     * @param r arreglo double
+     * @return r arreglo double
+     */
     public double[] cargarMatriz(double m[][], double r[]) {
 
         // recuerde que el metodo de Gauss Jordan trabaja con la idea de convertir la matriz aumentada en la matriz identidad
@@ -20,8 +27,8 @@ public class MetodoDeGaussJordan {
             if (Double.isNaN(d)) {
                 continue;
             }
-            System.out.println(Double.toString(d/2) + "*fila" + (i + 1) + "\n");// muesra en el area de texto el pivote seleccionado
-            for (int s = 0; s <= r.length - 1; s++) {// pasamos a convertir en 1 al pivote seleionado
+            System.out.println(Double.toString(d/2) + "*fila" + (i + 1) + "\n");// muestra en el area de texto el pivote seleccionado
+            for (int s = 0; s <= r.length - 1; s++) {// pasamos a convertir en 1 al pivote seleccionado
                 if (Double.isNaN(m[i][s])) {
                     continue;
                 }
@@ -44,7 +51,7 @@ public class MetodoDeGaussJordan {
                 }
                 System.out.println("|\t" + Double.toString(r[j]) + "\n");
             }
-            System.out.println("\n\n");// fin paso a motrar las opraciones realizadas en la matriz aumentada
+            System.out.println("\n\n");// fin paso a mostrar las opraciones realizadas en la matriz aumentada
 
             for (int x = 0; x <= r.length - 1; x++) {
                 if (i != x) {
@@ -53,11 +60,8 @@ public class MetodoDeGaussJordan {
                         continue;
                     }
                     System.out.println("-" + Double.toString(c) + " * fila" + (i + 1) + "+ fila" + (x + 1) + "\n");// mustra en pantalla las opraciones que se realizaran por fila
-                    for (int y = 0; y <= r.length - 1; y++) {// se hace cero a todos los elemntos de la colunma que no sean el pivote
+                    for (int y = 0; y <= r.length - 1; y++) {// se hace cero a todos los elementos de la colunma que no sean el pivote
                         m[x][y] = m[x][y] - c * m[i][y];
-                        if (Double.isNaN(m[x][y])) {
-                            continue;
-                        }
                     }
                     r[x] = r[x] - c * r[i];
                     
